@@ -49,7 +49,7 @@ class Header extends React.Component{
           <div className="dtc w2 v-mid pa3">
             {/* <button onClick={()=> this.logout()}>logout </button> */}
             <a href="/" className="dib w2 h2 pa1 grow-large logo avenir">
-              sandbox
+              DIYFishing
             </a>
           </div>
           {nav}

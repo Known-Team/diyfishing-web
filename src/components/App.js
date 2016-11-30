@@ -4,11 +4,8 @@ import base from '../base';
 
 import Header from './Header';
 import Home from './Home';
-import Search from './Search';
 import NotFound from './NotFound';
-import Welcome from './Welcome';
-import Mentors from '../mentors';
-import Db from './Db';
+import PointsofInterest from './PointsofInterest';
 
 
 class App extends Component {
@@ -16,14 +13,8 @@ class App extends Component {
   state = {
     uid: null,
     userDetail:null,
-    mentors: null
-  };
 
-  componentWillMount(){
-    this.setState({
-         mentors: Mentors
-    });
-  }
+  };
 
 
   componentDidMount(){
@@ -40,14 +31,10 @@ logout = () => {
       uid:null,
       userDetail:null
     })
-
-
   };
 
   authenticate = (provider) => {
-
-  base.authWithOAuthPopup(provider, this.authHandler);
-
+    base.authWithOAuthPopup(provider, this.authHandler);
   };
 
   authHandler = (err, authData) =>{
@@ -56,8 +43,6 @@ logout = () => {
       console.error(err);
       return
     }
-
-    console.log(authData);
 
     this.setState({
         uid: authData.user.uid,
@@ -72,10 +57,8 @@ logout = () => {
           <Header dropDownopen={false} logout={this.logout} {...this.state} />
           <BrowserRouter>
             <div>
-              <Match exactly pattern="/" component={Welcome} />
-              <Match pattern="/home" render={() => <Home login={this.authenticate} {...this.state} />} />
-              <Match pattern="/search" render={() => <Search {...this.state} />} />
-              <Match pattern="/firebase" render={() => <Db {...this.state} />} />
+              <Match exactly pattern="/" render={() => <Home login={this.authenticate} {...this.state} />} />
+              <Match pattern="/admin" render={() => <PointsofInterest {...this.state} />} />
               <Miss component={NotFound} />
             </div>
           </BrowserRouter>

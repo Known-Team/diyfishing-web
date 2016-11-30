@@ -1,2 +1,2 @@
 # diyfishing-web
-Admin dashboard and viewer for DIYFishing's point's of interest app
+A mini React app for the DIY Point of Interest admin panel and location viewer.

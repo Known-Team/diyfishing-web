@@ -284,12 +284,13 @@ body {
   font-size: 12px;
 }
 .home-page {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  text-align: center;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+.home-page h1 {
+  font-weight: 300;
 }
 .home-page__section {
   text-align: center;
@@ -312,8 +313,8 @@ body {
   text-align: center;
 }
 .home-page__navbuttons--button {
-  color: #007aff;
-  border: 1px solid #007aff;
+  color: #b881fc;
+  border: 1px solid #b881fc;
   font-weight: 100;
   background-color: #fff;
   text-decoration: none;
