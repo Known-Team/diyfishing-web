@@ -1,0 +1,617 @@
+.admin-panel {
+
+  margin:0 auto;
+  max-width: 50%;
+  border: 1px solid #eeeeee;
+  padding-bottom: 20px;
+  margin-top:20px;
+
+  &__header {
+    margin-top:20px;
+    margin-left:20px;
+  }
+
+  &__button {
+    width:150px;
+    font-size:10px;
+    font-weight:300 !important;
+    border: 1px solid #eaf882 !important;
+    background-color:#eaf882 !important;
+    color:#252525 !important;
+  }
+
+  &__form {
+    width:100%
+    padding:10px;
+    padding-bottom: 0px;
+    display:flex;
+  }
+
+  &__section {
+
+    flex:1
+    margin-top:10px;
+    margin:10px;
+    margin-bottom:0px;
+    display:flex;
+    flex-direction: column;
+
+    &--center {
+      align-items: center;
+    }
+
+    label {
+      font-size:0.8em;
+    }
+
+    input {
+      border:none;
+      background-color:#f9f9f9;
+      opacity: 0.8;
+      border-radius:4px;
+      height:25px;
+      font-size:14px;
+      padding-left:10px;
+      width: 100%;
+      margin-top:5px;
+    }
+
+    input[type="file"]{
+      font-size: 10px;
+      padding-bottom: 0px;
+      height: 20px;
+      padding-top: 5px;
+    }
+
+    &--location {
+      //flex:.5;
+      flex-wrap:wrap;
+      flex-direction: row;
+    }
+
+  }
+
+
+  .locations-block{
+    background-color:#f5f5f5;
+    margin-bottom:10px;
+    padding:7px;
+    font-size:0.8em;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width:50%;
+    margin:5px
+    flex:40%;
+    transition: 0.2s ease;
+
+    &:hover {
+      background-color: #f9f9f9;
+    }
+
+    &__actions {
+
+      color:red;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+    }
+
+    .locationImage{
+      height:40px;
+      width:40px;
+    }
+
+
+  }
+
+
+}
+
+body {
+  background-color: white
+}
+
+.app-container {
+ display: flex;
+ justify-content: center;
+ margin: 0 auto;
+
+ flex-direction: column;
+
+ &__search {
+   max-width: 50%;
+ }
+
+}
+
+.img{
+  height:30px;
+  width:30px;
+  margin-right:5px;
+}
+
+.displayName{
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+}
+
+.dropdown {
+
+  right:1rem
+  position: relative;
+  width:60%;
+
+
+  &__content {
+    position: absolute;
+    right:0;
+    transition: .2s ease;
+
+    min-width: 160px;
+    padding-top:10px;
+  //  bottom: -10px;
+    opacity: 1
+  }
+
+  &__item {
+    color:#252525;
+    font-weight:100;
+    font-size:12px;
+    transition: .2s ease;
+    padding-bottom:10px;
+    &:hover {
+      cursor: pointer;
+      color: #808080;
+    }
+
+  }
+
+
+
+  &--closed {
+    opacity:0;
+  }
+
+}
+
+.navlinks {
+    color:#252525;
+    border:none;
+    background-color:#ffffff;
+    font-weight:100;
+    font-size:14px;
+}
+
+.mentorImg{
+  height:80px;
+  width:80px;
+}
+
+.profile_button {
+  width:100%;
+  // color:#4BD863 !important;
+  // border: 1px solid #4BD863 !important;
+}
+
+.mentors {
+
+  margin-top:50px;
+  margin-bottom: 50px;
+
+  &__brick {
+    margin-top:20px;
+    padding:15px;
+    padding-bottom: 30px;
+    border-bottom:1px solid #EEEEEE;
+    display: flex;
+  }
+
+  &__avatar {
+    flex:1
+    display: flex;
+    align-items: center;
+  }
+
+  &__info {
+
+    flex:3
+
+    &__name{
+      color:#007AFF;
+      font-size:22px;
+      font-weight: 100;
+
+    }
+
+    &__title{
+      color:#8A8A8A;
+      font-size:15px;
+      font-weight: 300;
+      margin-bottom: 7px;
+    }
+
+    &__shortbio{
+      color:#8A8A8A;
+      font-size:14px;
+      font-weight: 100;
+      margin-bottom: 7px;
+    }
+
+    &__skills{
+
+      margin-top:10px;
+
+      &__skill{
+        font-size:12px;
+        border-radius: 4px;
+        color:#007AFF;
+        padding-top:4px;
+        padding-bottom: 4px;
+        padding-left:12px;
+        padding-right:12px;
+        background-color:#f5f5f5;
+        margin-right:10px;
+      }
+
+    }
+
+  }
+
+  &__actions {
+    flex:1
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__price {
+      display: flex;
+      justify-content: flex-end;
+      color:#8A8A8A;
+      font-size:12px;
+    }
+  }
+
+}
+
+
+
+.small-font {
+  font-size:12px;
+}
+
+
+.home-page {
+  justify-content: center;
+  flex: 1;
+
+  &__section {
+    text-align: center;
+    margin-top:40px;
+  }
+
+  &__header {
+    color:#007AFF;
+    text-align: center;
+    font-weight:100;
+    font-size:3em
+  }
+
+  &__sub-header {
+    color:#007AFF;
+    text-align: center;
+    font-weight:100;
+    font-size:2em
+  }
+
+  &__navbuttons {
+
+    margin-top:50px;
+    text-align: center;
+
+    &--button {
+      color:#007AFF;
+      border:1px solid #007AFF;
+      font-weight: 100;
+      background-color: #ffffff;
+      text-decoration: none;
+      padding:5px;
+      padding-left:2%;
+      padding-right:2%
+      border-radius: 4px;
+      transition: 0.2s ease;
+      margin:5px;
+
+      &:hover{
+        background-color: #f5f5f5;
+        cursor: pointer;
+      }
+
+      &:focus , &:active {
+        outline: 0;
+      }
+
+    }
+
+  }
+
+}
+
+
+.city-wrapper {
+  height:80%;
+  border-bottom:1px solid #eeeeee;
+  border-top:1px solid #eeeeee;
+  overflow-y: scroll;
+  padding-left:20px;
+  padding-right:20px;
+}
+
+.city-child {
+  width:100%;
+  margin-top:20px;
+  border-radius: 8px;
+  height:175px;
+  display: flex;
+  align-items: flex-end;
+  color:white;
+  font-weight: bold;
+  font-size:1.5em;
+  flex: 1;
+  padding:20px;
+  position: relative;
+
+    &--sanfrancisco {
+      background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('http://news.theregistrysf.com/wp-content/uploads/2015/06/san_francisco.jpg');
+      background-size:cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+      &--saltlakecity {
+        background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('https://parcdn.onjax.com/exitplusutah/images/islc2259_doug-pulsipher.jpg');
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      &--richmond{
+        background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('http://epicureandculture.com/wp-content/uploads/2015/08/RVA-wine-cover-photo-e1440083042709.jpg');
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      &--newyork{
+        background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('http://blogs-images.forbes.com/koim/files/2015/08/0814_FL-nyc-rooftop-bars_2000x1125-1940x1091.jpg');
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+        &--portland{
+          background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('http://joshblatteryoga.com/wp-content/uploads/2013/06/oregon.jpg');
+          background-size:cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        &--austin{
+          background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('http://cdn.mntm.me/76/79/82/10-Must-Stops-in-Austin-with-Kids-Where-to-Stay-Eat-and-What-to-Do-7679821bf0f840548b848888b6e8ccd0.jpg');
+          background-size:cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        &--losangeles{
+          background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('https://cdnx.jetcdn.com/static/images/destinations/los-angeles/bg3.jpg');
+          background-size:cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        &--seattle{
+          background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('http://kingofwallpapers.com/seattle/seattle-002.jpg');
+          background-size:cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+    &__overlay{
+      background: rgba(01,01,01,0.0)
+      position: absolute;
+      border-radius:8px;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      transition: 0.2s ease-out;
+
+      &:hover {
+        background: rgba(01,01,01,0.4)
+
+      }
+    }
+
+    &__name{
+      position: relative;
+      z-index: 1;
+    }
+
+
+}
+
+.module-section {
+  flex:1;
+  margin:10px
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  height:80vh;
+  background-color:rgba(255,255,255,0.4);
+
+  padding:10px
+
+  &--city {
+    flex:1;
+  }
+
+  &--mentor {
+    flex: 2;
+  }
+
+}
+
+
+
+
+
+
+// OLD STUFFFFFFFFFFFFFF
+.city-wrap{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+  height:320px;
+  transition: 0.2s ease-out;
+  margin-top:20px;
+
+
+
+
+  &__city{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    border-radius:4px;
+    color:white;
+    padding: 5px;
+    width: 100%;
+    height:100%;
+    margin-top: 10px;
+    margin:10px
+    font-weight: bold;
+    text-align: center;
+    font-size:1.5em;
+    flex: 1;
+    padding:20px;
+
+
+
+
+
+  }
+
+}
+
+input[type="checkbox"]{
+  appearance:none;
+}
+
+input[type="checkbox"] + label:hover {
+  background-color:#f5f5f5;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label {
+  background-color:#eeeeee;
+}
+
+input[type="checkbox"] + label {
+  padding-left:4%;
+  padding-right: 4%;
+  text-align: center;
+  font-size: 10px;
+  margin:5px;
+}
+
+input, select{
+  transition: 0.8s ease;
+
+}
+input:hover, select:hover{
+  background-color: #f5f5f5;
+}
+
+input:active, select:active, input:focus, select:focus{
+  outline:0;
+}
+
+
+
+
+.mainbg
+  background-image: url(http://mrmrs.io/photos/u/011.jpg)
+
+.logo
+  color:#252525;
+  text-decoration: none
+  font-weight:100
+
+.select
+  border-radius: 0px
+  border-color: black
+
+.form-title
+  margin-bottom: 10px;
+
+.content-container
+  width:87.5%
+  margin: 0 auto
+  padding-bottom: 50px
+
+  &--home
+   margin-top:100px;
+
+  &--form
+    width:45%
+
+header
+  margin-bottom: 35px
+
+.cities
+  text-align: center;
+  margin-top:20px;
+
+
+  &__city
+    border: 1px solid black
+    flex:1
+    background-color:#f5f5f5;
+    font-size: 14px;
+    font-weight: 100;
+    margin: 5px
+    border:none
+    color:#007aff
+    text-align: center;
+    border-radius: 4px;
+    padding-top:4px;
+    padding-bottom: 4px;
+    padding-left:10px;
+    padding-right:10px;
+    cursor:pointer;
+    transition: 0.2s ease;
+
+    &:hover{
+      opacity: 0.5;
+    }
+
+
+
+    &--content
+      padding-bottom: 100%
+
+    &:before
+      padding-bottom: 100%
+      content: ''
