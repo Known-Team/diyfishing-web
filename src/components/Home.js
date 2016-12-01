@@ -1,7 +1,7 @@
 import React from 'react';
-import base from '../base';
-import { BrowserRouter, Match, Miss, Redirect, Link } from 'react-router';
-import { makeGreeting } from '../helpers';
+
+import { Redirect,  } from 'react-router';
+
 
 class Home extends React.Component{
 
@@ -20,9 +20,10 @@ class Home extends React.Component{
                 <small>DIYFishing's</small><br/>
                  Points of Interest
               </h1>
+              <h4 className="avenir">( needs some design love )</h4>
               <div className="home-page__navbuttons">
                 <button onClick={()=> this.props.login('github')} className="home-page__navbuttons--button avenir">Login with GitHub</button>
-                <button onClick={()=> this.props.login('facebook')} className="home-page__navbuttons--button avenir">Login with Facebook</button>
+                {/* <button onClick={()=> this.props.login('facebook')} className="home-page__navbuttons--button avenir">Login with Facebook</button> */}
               </div>
             </div>
           </div>

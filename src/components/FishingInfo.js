@@ -1,7 +1,6 @@
 import React from 'react';
 
-class PointsofInterest extends React.Component{
-
+class FishingInfo extends React.Component{
   render(){
     return(
       <div className="admin-panel avenir">
@@ -29,12 +28,12 @@ class PointsofInterest extends React.Component{
         <div className="admin-panel__form">
           <div className="admin-panel__section">
             <label>Short Description</label>
-          <textarea id="description" type="text" />
+            <input id="description" type="text" />
           </div>
         </div>
         <div className="admin-panel__form">
           <div className="admin-panel__section admin-panel__section--center">
-            <button id="btnAddLocation" onClick={()=> this.props.addPointofInterest()} className="home-page__navbuttons--button admin-panel__button avenir">Add Location</button>
+            <button id="btnAddLocation" onClick={()=> this.addLocation()} className="home-page__navbuttons--button admin-panel__button avenir">Add Location</button>
           </div>
         </div>
       </div>
@@ -42,4 +41,4 @@ class PointsofInterest extends React.Component{
   }
 }
 
-export default PointsofInterest
+export default FishingInfo

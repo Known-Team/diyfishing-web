@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Match, Miss, Redirect } from 'react-router';
+import { BrowserRouter, Match, Miss } from 'react-router';
 import base from '../base';
 
 import Header from './Header';
 import Home from './Home';
 import NotFound from './NotFound';
-import PointsofInterest from './PointsofInterest';
+import Admin from './Admin';
 
 
 class App extends Component {
@@ -58,7 +58,7 @@ logout = () => {
           <BrowserRouter>
             <div>
               <Match exactly pattern="/" render={() => <Home login={this.authenticate} {...this.state} />} />
-              <Match pattern="/admin" render={() => <PointsofInterest {...this.state} />} />
+            <Match pattern="/admin" render={() => <Admin {...this.state} />} />
               <Miss component={NotFound} />
             </div>
           </BrowserRouter>
