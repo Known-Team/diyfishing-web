@@ -58,7 +58,8 @@ logout = () => {
           <BrowserRouter>
             <div>
               <Match exactly pattern="/" render={() => <Home login={this.authenticate} {...this.state} />} />
-            <Match pattern="/admin" render={() => <Admin {...this.state} />} />
+              <Match pattern="/admin" render={() => <Admin {...this.state} />} />
+              
               <Miss component={NotFound} />
             </div>
           </BrowserRouter>

@@ -41,8 +41,9 @@ class Admin extends React.Component{
 
     storageRef.child(`images/${file.name}`).put(file,metadata).then(function(snapshot){
 
+      const timestamp = Date.now();
       const url = snapshot.metadata.downloadURLs[0];
-      base.post(`pointofinterest/${name}`, {
+      base.post(`pointofinterest/poi-${timestamp}`, {
         data: { name: name, image: url, latitude: latitude, longitude: longitude, description:description },
         then(err){
           if(!err){
@@ -73,6 +74,8 @@ class Admin extends React.Component{
       }
     })
   }
+
+
 
   getLocationData(location) {
     base.fetch(`pointsofinterest/${location}`, {
@@ -109,12 +112,34 @@ class Admin extends React.Component{
   }
 
   removeLocation = (key) => {
+
+    var c = confirm("Are you sure you want to delete this point of interest? Once deleted, this cannot be undone.");
+    if (c == false) {
+        return;
+    }
+
     const pointsofinterest = {...this.state.pointsofinterest}
     //have to set null since were hooked to firebase, other wise would just delete fishes[key]
     pointsofinterest[key] = null;
     this.setState({ pointsofinterest })
 
   }
+
+  updatePOI = (key,updatedPOI) =>{
+    const poi = {...this.state.pointsofinterest}
+    poi[key] = updatedPOI;
+    this.setState({ pointsofinterest: poi });
+  };
+
+  handlePOIChange = (e,key) => {
+  const pointofinterest = this.state.pointsofinterest[key];
+ console.log(pointofinterest);
+  const updatedPOI = {
+    ...pointofinterest,
+    [e.target.name]: e.target.value
+    }
+  this.updatePOI(key,updatedPOI);
+}
 
   renderLocations = (key) => {
     const location = this.state.pointsofinterest[key];
@@ -124,10 +149,10 @@ class Admin extends React.Component{
           <img className="h3 w3 dib locationImage" src={location.image} alt="location"/>
         </div>
         <div className="locations-block__info">
-        <div><input type="text" value={location.name} /></div>
-        <div><input type="text" value={location.latitude} /></div>
-        <div><input type="text" value={location.longitude} /></div>
-      <div><textarea type="text" value={location.description} /></div>
+          <div><label>Point of Interest</label><input name="name" onChange={(e) => this.handlePOIChange(e, key)} type="text" value={location.name} /></div>
+          <div><label>Latitude</label><input name="latitude" onChange={(e) => this.handlePOIChange(e, key)} type="text" value={location.latitude} /></div>
+          <div><label>Longitude</label><input name="longitude" onChange={(e) => this.handlePOIChange(e, key)} type="text" value={location.longitude} /></div>
+          <div><label>Description</label><textarea name="description" onChange={(e) => this.handlePOIChange(e, key)} type="text" value={location.description} /></div>
         </div>
         <div onClick={() => this.removeLocation(key)} className="locations-block__actions">&times;</div>
       </div>

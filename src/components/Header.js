@@ -23,6 +23,9 @@ class Header extends React.Component{
           <div className="dtc v-mid tr  dropdown">
             <a href="#" onClick={this.showDropDown} className="no-underline avenir navlinks displayName"><img className="br-100 h3 w3 dib img" src={this.props.userDetail.photoURL} alt="avatar" />{this.props.userDetail.displayName}</a>
             <div className={`dropdown__content ${this.state.dropDownopen ? `dropdown--open` :  `dropdown--closed` }`}>
+
+              <div className="dropdown__item avenir">Points of Interest</div>
+              <div className="dropdown__item avenir">Fishing Info</div>
               <div onClick={this.props.logout} className="dropdown__item avenir">Logout</div>
             </div>
           </div>
