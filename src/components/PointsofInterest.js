@@ -29,7 +29,7 @@ class PointsofInterest extends React.Component{
         <div className="admin-panel__form">
           <div className="admin-panel__section">
             <label>Short Description</label>
-          <textarea id="description" type="text" />
+            <textarea id="description" type="text" />
           </div>
         </div>
         <div className="admin-panel__form">

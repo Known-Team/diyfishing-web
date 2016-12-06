@@ -1,10 +1,11 @@
 import React from 'react';
 
-class FishingInfo extends React.Component{
+class Fishing extends React.Component{
+
   render(){
     return(
       <div className="admin-panel avenir">
-        <div className="admin-panel__header">Add New Point of Interest</div>
+        <div className="admin-panel__header">Add New Fishing Info</div>
         <div className="admin-panel__form">
           <div className="admin-panel__section">
             <label>Name</label>
@@ -28,12 +29,12 @@ class FishingInfo extends React.Component{
         <div className="admin-panel__form">
           <div className="admin-panel__section">
             <label>Short Description</label>
-            <input id="description" type="text" />
+            <textarea id="description" type="text" />
           </div>
         </div>
         <div className="admin-panel__form">
           <div className="admin-panel__section admin-panel__section--center">
-            <button id="btnAddLocation" onClick={()=> this.addLocation()} className="home-page__navbuttons--button admin-panel__button avenir">Add Location</button>
+            <button id="btnAddLocation" onClick={()=> this.props.addPointofInterest()} className="home-page__navbuttons--button admin-panel__button avenir">Add Location</button>
           </div>
         </div>
       </div>
@@ -41,4 +42,4 @@ class FishingInfo extends React.Component{
   }
 }
 
-export default FishingInfo
+export default Fishing

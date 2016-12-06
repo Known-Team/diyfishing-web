@@ -18,7 +18,7 @@ class Home extends React.Component{
 
               <h1 className="fw6 f3 f2-ns lh-title mt0 mb3 avenir">
                 <small>DIYFishing's</small><br/>
-                 Points of Interest
+                Points of Interest
               </h1>
               <h4 className="avenir">( needs some design love )</h4>
               <div className="home-page__navbuttons">
