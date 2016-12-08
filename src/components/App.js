@@ -9,6 +9,7 @@ import Admin from './Admin';
 
 import POIContainer from '../containers/POIContainer';
 import FishingContainer from '../containers/FishingContainer';
+import EditPOIContainer from '../containers/EditPOIContainer';
 
 
 class App extends Component {
@@ -46,6 +47,7 @@ logout = () => {
       uid:null,
       userDetail:null
     })
+
   };
 
   authenticate = (provider) => {
@@ -82,10 +84,9 @@ logout = () => {
             <div>
               <Match exactly pattern="/" render={() => <Home login={this.authenticate} {...this.state} />} />
               <Match pattern="/admin" render={() => <Admin  {...this.state} />} />
-
-              <Match pattern="/poi" render={() => <POIContainer />} />
+              <Match pattern="/poi" render={() => <POIContainer {...this.state} />} />
               <Match pattern="/fishing" render={() => <FishingContainer />} />
-
+              <Match pattern="/edit-poi" render={() => <EditPOIContainer />} />
               <Miss component={NotFound} />
             </div>
           </BrowserRouter>

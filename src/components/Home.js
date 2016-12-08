@@ -9,7 +9,7 @@ class Home extends React.Component{
     if (this.props.uid){
       console.log("im logged in");
       return (
-          <Redirect to={'/admin'} />
+          <Redirect to={'/poi'} />
       )
     }
     return(
@@ -22,7 +22,7 @@ class Home extends React.Component{
               </h1>
               <h4 className="avenir">( needs some design love )</h4>
               <div className="home-page__navbuttons">
-                <button onClick={()=> this.props.login('github')} className="home-page__navbuttons--button avenir">Login with GitHub</button>
+                <button onClick={()=> this.props.login('google')} className="home-page__navbuttons--button avenir">Login with Google</button>
                 {/* <button onClick={()=> this.props.login('facebook')} className="home-page__navbuttons--button avenir">Login with Facebook</button> */}
               </div>
             </div>
