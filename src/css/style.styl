@@ -1,3 +1,7 @@
+.component-wrapper {
+  margin-bottom: 50px;
+}
+
 .admin-panel {
 
   margin:0 auto;
@@ -93,7 +97,7 @@
   }
 
 
-  .locations-block{
+  .locations-block {
     border-bottom:1px solid #f5f5f5;
     margin-bottom:10px;
     padding:7px;
@@ -112,40 +116,56 @@
       //background-color: #f9f9f9;
     }
 
-    &__actions {
-      font-size:2em;
-      color:red;
 
-      &:hover {
-        cursor: pointer;
-      }
-
-    }
 
     &__info{
       font-size:1.5em;
       display: flex;
       flex: 1;
-      margin-left: 5%;
-      margin-right: 5%;
+      align-items: center;
       align-self: flex-start;
-      flex-direction: column;
+      flex-direction: row;
 
-      label {
-        font-size: 10px;
-        color: #b881fc;
+      &__prop {
+
+        margin-right:25px;
+
+        img {
+          height:50px;
+          width:50px;
+          border-radius: 50%;
+        }
+
+        &--label {
+          font-size: 10px;
+          color: #b881fc;
+        }
+
+        &--value {
+          font-size: 12px;
+        }
+
       }
     }
 
-    .locationImage{
-      height:120px;
-      width:150px;
+    &__actions {
+      display: flex;
+
+      div {
+        margin-left:10px
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      &--delete {
+        color: red;
+      }
+
     }
 
-
   }
-
-
 }
 
 body {

@@ -1,3 +1,6 @@
+.component-wrapper {
+  margin-bottom: 50px;
+}
 .admin-panel {
   margin: 0 auto;
   max-width: 50%;
@@ -118,13 +121,6 @@
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
 }
-.admin-panel .locations-block__actions {
-  font-size: 2em;
-  color: #f00;
-}
-.admin-panel .locations-block__actions:hover {
-  cursor: pointer;
-}
 .admin-panel .locations-block__info {
   font-size: 1.5em;
   display: -webkit-box;
@@ -133,22 +129,44 @@
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  margin-left: 5%;
-  margin-right: 5%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-item-align: start;
       align-self: flex-start;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
-.admin-panel .locations-block__info label {
+.admin-panel .locations-block__info__prop {
+  margin-right: 25px;
+}
+.admin-panel .locations-block__info__prop img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.admin-panel .locations-block__info__prop--label {
   font-size: 10px;
   color: #b881fc;
 }
-.admin-panel .locations-block .locationImage {
-  height: 120px;
-  width: 150px;
+.admin-panel .locations-block__info__prop--value {
+  font-size: 12px;
+}
+.admin-panel .locations-block__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.admin-panel .locations-block__actions div {
+  margin-left: 10px;
+}
+.admin-panel .locations-block__actions a {
+  text-decoration: none;
+}
+.admin-panel .locations-block__actions--delete {
+  color: #f00;
 }
 body {
   background-color: #fff;

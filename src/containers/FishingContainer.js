@@ -93,16 +93,32 @@ updatePOI = (key,updatedfo) =>{
     const location = this.state.fishinginfo[key];
     return (
       <div className="locations-block" key={key}>
-        <div className="locations-block__image">
-          <img className="h3 w3 dib locationImage" src={location.image} alt="location"/>
-        </div>
+
         <div className="locations-block__info">
-          <div><label>Point of Interest</label><input name="name" onChange={(e) => this.handlePOIChange(e, key)} type="text" value={location.name} /></div>
-          <div><label>Latitude</label><input name="latitude" onChange={(e) => this.handlePOIChange(e, key)} type="text" value={location.latitude} /></div>
-          <div><label>Longitude</label><input name="longitude" onChange={(e) => this.handlePOIChange(e, key)} type="text" value={location.longitude} /></div>
-          <div><label>Description</label><textarea name="description" onChange={(e) => this.handlePOIChange(e, key)} type="text" value={location.description} /></div>
+
+          <div className="locations-block__info__prop">
+            <img src={location.image} />
+          </div>
+
+          <div className="locations-block__info__prop">
+            <div className="locations-block__info__prop--label">Name</div>
+            <div className="locations-block__info__prop--value">{location.name}</div>
+          </div>
+
+
+          <div className="locations-block__info__prop">
+            <div className="locations-block__info__prop--label">Description</div>
+            <div className="locations-block__info__prop--value">{location.description}</div>
+          </div>
+
+
         </div>
-        <div onClick={() => this.removeLocation(key)} className="locations-block__actions">&times;</div>
+        <div className="locations-block__actions">
+          <div><a className="dropdown__item avenir" href={`/edit-poi?editId=${key}`}>Edit</a></div>
+          <div className="locations-block__actions--delete" onClick={() => this.removeLocation(key)}>&times;</div>
+
+        </div>
+
       </div>
     )
   }
