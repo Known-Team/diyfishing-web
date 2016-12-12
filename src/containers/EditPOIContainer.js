@@ -68,8 +68,8 @@ class EditPOIContainer extends React.Component{
 
     const name = this.state.name;
     const latitude = this.state.latitude;
-    
-
+    const longitude = this.state.longitude;
+    const description = this.state.description;
 
     document.getElementById('btnEditLocation').innerHTML = 'Saving...';
     const image = document.getElementById('image').files;
@@ -85,10 +85,11 @@ class EditPOIContainer extends React.Component{
 
         const url = snapshot.metadata.downloadURLs[0];
         base.update(`pointofinterest/${id}`, {
-          data: { name: this.state.name, image: url, latitude: this.state.latitude, longitude: this.state.longitude, description: this.state.description },
+          data: { name: name, image: url, latitude: latitude, longitude: longitude, description: description },
           then(err){
             if(!err){
                 document.getElementById('btnEditLocation').innerHTML = 'Save';
+                window.location.reload();
             }
           }
         })
