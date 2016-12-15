@@ -35,9 +35,10 @@ class FishingContainer extends React.Component{
       'contentType': file.type
     }
 
-    storageRef.child(`images/${file.name}`).put(file,metadata).then(function(snapshot){
+    const timestamp = Date.now();
 
-      const timestamp = Date.now();
+    storageRef.child(`images/${timestamp}/${file.name}`).put(file,metadata).then(function(snapshot){
+
       const url = snapshot.metadata.downloadURLs[0];
       base.post(`fishinginfo/fo-${timestamp}`, {
         data: { name: name, image: url, latitude: latitude, longitude: longitude, description:description },
@@ -61,7 +62,7 @@ class FishingContainer extends React.Component{
 
   removeLocation = (key) => {
 
-    var c = confirm("Are you sure you want to delete this point of interest? Once deleted, this cannot be undone.");
+    var c = confirm("Are you sure you want to delete fishing info? Once deleted, this cannot be undone.");
     if (c === false) {
         return;
     }
@@ -108,15 +109,15 @@ updatePOI = (key,updatedfo) =>{
 
           <div className="locations-block__info__prop">
             <div className="locations-block__info__prop--label">Description</div>
-            <div className="locations-block__info__prop--value">{location.description}</div>
+            <div className="locations-block__info__prop--value">{location.description.substring(0,50) + '...'}</div>
           </div>
 
 
         </div>
         <div className="locations-block__actions">
-          <div><a className="dropdown__item avenir" href={`/edit-poi?editId=${key}`}>Edit</a></div>
+          <div><a className="dropdown__item avenir" href={`/edit-fishing?editId=${key}`}>Edit</a></div>
           <div className="locations-block__actions--delete" onClick={() => this.removeLocation(key)}>&times;</div>
-
+          
         </div>
 
       </div>

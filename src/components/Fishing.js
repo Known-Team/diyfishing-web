@@ -28,8 +28,8 @@ class Fishing extends React.Component{
         </div>
         <div className="admin-panel__form">
           <div className="admin-panel__section">
-            <label>Short Description</label>
-            <textarea id="description" type="text" />
+            <label> Description</label>
+            <textarea id="description" className="fishing-description" type="text" />
           </div>
         </div>
         <div className="admin-panel__form">

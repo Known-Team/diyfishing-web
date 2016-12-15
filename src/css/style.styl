@@ -1,32 +1,3 @@
-.component-wrapper {
-  margin-bottom: 50px;
-}
-
-
-.wrapper {
-
-  max-width: 50rem;
-  margin:0 auto;
-  padding:1rem;
-
-}
-
-.edit-wrap {
-
-  h2 {
-    font-weight: 300;
-    margin-top:7px;
-  }
-
-  label {
-    font-weight: 100;
-    font-size:0.8em;
-    color: #b881fc;
-  }
-
-}
-
-
 
 .admin-panel {
 
@@ -35,6 +6,7 @@
   border: 1px solid #eeeeee;
   padding-bottom: 20px;
   margin-top:20px;
+  margin-bottom: 20px;
 
   @media (max-width:700px){
     max-width: 90%;
@@ -194,9 +166,84 @@
   }
 }
 
-body {
-  background-color: white
+ body {
+   background-color: white
+ }
+
+.component-wrapper {
+  margin-bottom: 50px;
 }
+
+.wrapper {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.edit-wrap {
+
+  h2 {
+    font-weight: 300;
+    margin-top: 7px;
+  }
+
+  label {
+    font-weight: 100;
+    font-size: 0.8em;
+    color: #b881fc;
+  }
+
+}
+
+
+.fishing-description {
+  height: 300px !important;
+}
+
+.logout {
+  margin-top: 20px;
+  color: #b881fc !important;
+}
+
+.view-page {
+  max-width: 1000px;
+  margin: auto;
+
+  &__subtitle {
+    width: 75%;
+
+    @media (max-width: 900px){
+      width: 100%;
+    }
+
+  }
+
+  &__body {
+    font-weight: 300;
+    font-size: 14px;
+  }
+
+  hr {
+    background-color: #eeeeee;
+    border: none;
+    height: 1px;
+    margin-bottom: 25px;
+  }
+
+
+  h1 {
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    font-weight: 300;
+    margin-top:10px;
+  }
+
+}
+
 
 .app-container {
  display: flex;
@@ -436,109 +483,6 @@ body {
 }
 
 
-.city-wrapper {
-  height:80%;
-  border-bottom:1px solid #eeeeee;
-  border-top:1px solid #eeeeee;
-  overflow-y: scroll;
-  padding-left:20px;
-  padding-right:20px;
-}
-
-.city-child {
-  width:100%;
-  margin-top:20px;
-  border-radius: 8px;
-  height:175px;
-  display: flex;
-  align-items: flex-end;
-  color:white;
-  font-weight: bold;
-  font-size:1.5em;
-  flex: 1;
-  padding:20px;
-  position: relative;
-
-    &--sanfrancisco {
-      background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('http://news.theregistrysf.com/wp-content/uploads/2015/06/san_francisco.jpg');
-      background-size:cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-
-      &--saltlakecity {
-        background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('https://parcdn.onjax.com/exitplusutah/images/islc2259_doug-pulsipher.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-
-      &--richmond{
-        background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('http://epicureandculture.com/wp-content/uploads/2015/08/RVA-wine-cover-photo-e1440083042709.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-
-      &--newyork{
-        background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('http://blogs-images.forbes.com/koim/files/2015/08/0814_FL-nyc-rooftop-bars_2000x1125-1940x1091.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-
-        &--portland{
-          background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('http://joshblatteryoga.com/wp-content/uploads/2013/06/oregon.jpg');
-          background-size:cover;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-
-        &--austin{
-          background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('http://cdn.mntm.me/76/79/82/10-Must-Stops-in-Austin-with-Kids-Where-to-Stay-Eat-and-What-to-Do-7679821bf0f840548b848888b6e8ccd0.jpg');
-          background-size:cover;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-
-        &--losangeles{
-          background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('https://cdnx.jetcdn.com/static/images/destinations/los-angeles/bg3.jpg');
-          background-size:cover;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-
-        &--seattle{
-          background:linear-gradient(to top,rgba(01,01,01,0.8) 10%,rgba(01,01,01,0.2)),url('http://kingofwallpapers.com/seattle/seattle-002.jpg');
-          background-size:cover;
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-
-    &__overlay{
-      background: rgba(01,01,01,0.0)
-      position: absolute;
-      border-radius:8px;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-      transition: 0.2s ease-out;
-
-      &:hover {
-        background: rgba(01,01,01,0.4)
-
-      }
-    }
-
-    &__name{
-      position: relative;
-      z-index: 1;
-    }
-
-
-}
-
 .module-section {
   flex:1;
   margin:10px
@@ -555,49 +499,6 @@ body {
 
   &--mentor {
     flex: 2;
-  }
-
-}
-
-
-
-
-
-
-// OLD STUFFFFFFFFFFFFFF
-.city-wrap{
-  display:flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-end;
-  height:320px;
-  transition: 0.2s ease-out;
-  margin-top:20px;
-
-
-
-
-  &__city{
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    border-radius:4px;
-    color:white;
-    padding: 5px;
-    width: 100%;
-    height:100%;
-    margin-top: 10px;
-    margin:10px
-    font-weight: bold;
-    text-align: center;
-    font-size:1.5em;
-    flex: 1;
-    padding:20px;
-
-
-
-
-
   }
 
 }
@@ -635,12 +536,6 @@ input:active, select:active, input:focus, select:focus{
   outline:0;
 }
 
-
-
-
-.mainbg
-  background-image: url(http://mrmrs.io/photos/u/011.jpg)
-
 .logo
   color:#252525;
   text-decoration: none
@@ -665,40 +560,4 @@ input:active, select:active, input:focus, select:focus{
     width:45%
 
 header
-  margin-bottom: 35px
-
-.cities
-  text-align: center;
-  margin-top:20px;
-
-
-  &__city
-    border: 1px solid black
-    flex:1
-    background-color:#f5f5f5;
-    font-size: 14px;
-    font-weight: 100;
-    margin: 5px
-    border:none
-    color:#007aff
-    text-align: center;
-    border-radius: 4px;
-    padding-top:4px;
-    padding-bottom: 4px;
-    padding-left:10px;
-    padding-right:10px;
-    cursor:pointer;
-    transition: 0.2s ease;
-
-    &:hover{
-      opacity: 0.5;
-    }
-
-
-
-    &--content
-      padding-bottom: 100%
-
-    &:before
-      padding-bottom: 100%
-      content: ''
+  margin-bottom: 10px;

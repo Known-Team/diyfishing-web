@@ -35,9 +35,10 @@ class POIContainer extends React.Component{
       'contentType': file.type
     }
 
-    storageRef.child(`images/${file.name}`).put(file,metadata).then(function(snapshot){
-
       const timestamp = Date.now();
+    storageRef.child(`images/${timestamp}/${file.name}`).put(file,metadata).then(function(snapshot){
+
+
       const url = snapshot.metadata.downloadURLs[0];
       base.post(`pointofinterest/poi-${timestamp}`, {
         data: { name: name, image: url, latitude: latitude, longitude: longitude, description:description },

@@ -8,9 +8,12 @@ import NotFound from './NotFound';
 import Admin from './Admin';
 
 import POIContainer from '../containers/POIContainer';
-import FishingContainer from '../containers/FishingContainer';
 import EditPOIContainer from '../containers/EditPOIContainer';
 
+import FishingContainer from '../containers/FishingContainer';
+import EditFishingContainer from '../containers/EditFishingContainer';
+
+import ViewFishingInfo from '../components/ViewFishingInfo';
 
 class App extends Component {
 
@@ -87,6 +90,8 @@ logout = () => {
               <Match pattern="/poi" render={() => <POIContainer {...this.state} />} />
               <Match pattern="/fishing" render={() => <FishingContainer />} />
               <Match pattern="/edit-poi" render={() => <EditPOIContainer />} />
+              <Match pattern="/edit-fishing" render={() => <EditFishingContainer />} />
+              <Match pattern="/view-info" render={() => <ViewFishingInfo />} />
               <Miss component={NotFound} />
             </div>
           </BrowserRouter>

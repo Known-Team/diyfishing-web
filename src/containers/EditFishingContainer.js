@@ -2,7 +2,7 @@ import React from 'react';
 
 import base from '../base';
 
-class EditPOIContainer extends React.Component{
+class EditFishingContainer extends React.Component{
 
   constructor(props) {
    super(props);
@@ -23,7 +23,7 @@ class EditPOIContainer extends React.Component{
   componentWillMount() {
 
     const editID = this.context.location.query.editId;
-    base.fetch(`/pointofinterest/${editID}`, {
+    base.fetch(`/fishinginfo/${editID}`, {
       context: this,
       asArray: false,
       then(data){
@@ -65,7 +65,6 @@ class EditPOIContainer extends React.Component{
 
     let id = this.context.location.query.editId;
 
-
     const name = this.state.name;
     const latitude = this.state.latitude;
     const longitude = this.state.longitude;
@@ -82,10 +81,11 @@ class EditPOIContainer extends React.Component{
       }
 
       const timestamp = Date.now();
+
       storageRef.child(`images/${timestamp}/${file.name}`).put(file,metadata).then(function(snapshot){
 
         const url = snapshot.metadata.downloadURLs[0];
-        base.update(`pointofinterest/${id}`, {
+        base.update(`fishinginfo/${id}`, {
           data: { name: name, image: url, latitude: latitude, longitude: longitude, description: description },
           then(err){
             if(!err){
@@ -102,7 +102,7 @@ class EditPOIContainer extends React.Component{
 
     } else {
 
-      base.update(`pointofinterest/${id}`, {
+      base.update(`fishinginfo/${id}`, {
         data: { name: this.state.name, latitude: this.state.latitude, longitude: this.state.longitude, description: this.state.description },
         then(err){
           if(!err){
@@ -113,8 +113,6 @@ class EditPOIContainer extends React.Component{
 
     }
 
-
-
   }
 
   render() {
@@ -122,7 +120,7 @@ class EditPOIContainer extends React.Component{
       <div className="component-wrapper">
         <div className="wrapper">
           <div className="admin-panel avenir">
-            <div className="admin-panel__header">Edit Point of Interest</div>
+            <div className="admin-panel__header">Edit Fishing Info</div>
             <div className="admin-panel__form">
               <div className="admin-panel__section">
                 <label>Name</label>
@@ -141,8 +139,8 @@ class EditPOIContainer extends React.Component{
             </div>
             <div className="admin-panel__form">
               <div className="admin-panel__section">
-                <label>Short Description</label>
-                <textarea name="description" type="text" value={this.state.description} onChange={this.handleChange}  />
+                <label>Description</label>
+                <textarea name="description" className="fishing-description" type="text" value={this.state.description} onChange={this.handleChange}  />
               </div>
             </div>
             <div className="admin-panel__form">
@@ -168,8 +166,8 @@ class EditPOIContainer extends React.Component{
   }
 }
 
-EditPOIContainer.contextTypes = {
+EditFishingContainer.contextTypes = {
   location: React.PropTypes.object
 }
 
-export default EditPOIContainer;
+export default EditFishingContainer;
