@@ -20,6 +20,7 @@ class ViewFishingInfo extends React.Component{
   componentDidMount() {
 
     // commented code below is just to test the api.
+    // ...
 
     //   fetch('https://diyfishing.apispark.net/v1/fishing_infos/')
     // .then(function(response) {
