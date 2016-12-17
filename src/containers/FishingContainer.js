@@ -1,5 +1,6 @@
 import React from 'react';
 import FishingInfo from '../components/Fishing';
+import { Redirect, Link } from 'react-router';
 import base from '../base';
 
 
@@ -117,7 +118,7 @@ updatePOI = (key,updatedfo) =>{
         <div className="locations-block__actions">
           <div><a className="dropdown__item avenir" href={`/edit-fishing?editId=${key}`}>Edit</a></div>
           <div className="locations-block__actions--delete" onClick={() => this.removeLocation(key)}>&times;</div>
-          
+
         </div>
 
       </div>
@@ -125,19 +126,36 @@ updatePOI = (key,updatedfo) =>{
   }
 
   render(){
-    return(
-      <div>
-        <FishingInfo addPointofInterest={this.addPointofInterest}  {...this.state} />
-        <div className="admin-panel avenir">
-          <div className="admin-panel__header">Fishing Info Added</div>
-          <div className="admin-panel__form">
-            <div className="admin-panel__section admin-panel__section--location">
-              {Object.keys(this.state.fishinginfo).map(this.renderLocations)}
+
+    if ( !this.props.uid ) {
+      return (
+        <div className="component-wrapper">
+          <div className="wrapper">
+            <div className="admin-panel admin-panel--no-border avenir">
+              <h2 className="avenir">See you soon!</h2>
+              <Link to="/" className="home-page__navbuttons--button avenir">Sign back in</Link>
             </div>
           </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+        return(
+          <div>
+            <FishingInfo addPointofInterest={this.addPointofInterest}  {...this.state} />
+            <div className="admin-panel avenir">
+              <div className="admin-panel__header">Fishing Info Added</div>
+              <div className="admin-panel__form">
+                <div className="admin-panel__section admin-panel__section--location">
+                  {Object.keys(this.state.fishinginfo).map(this.renderLocations)}
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      }
+
+
+
   }
 }
 

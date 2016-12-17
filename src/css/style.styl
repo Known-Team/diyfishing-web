@@ -17,6 +17,19 @@
     margin-left:20px;
   }
 
+  &--no-border {
+    border: none;
+
+    h2 {
+      font-weight: 300;
+    }
+
+    a {
+      margin-left: 0px;
+    }
+
+  }
+
   &__button {
     width:150px;
     font-size:10px;
@@ -175,7 +188,7 @@
 }
 
 .wrapper {
-  max-width: 50rem;
+  max-width: 60rem;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -221,6 +234,7 @@
   &__body {
     font-weight: 300;
     font-size: 14px;
+    margin-top:15px;
   }
 
   hr {
@@ -287,11 +301,11 @@
     position: absolute;
     right:0;
     transition: .2s ease;
-
     min-width: 160px;
     padding-top:10px;
-  //  bottom: -10px;
-    opacity: 1
+    opacity: 1;
+    background-color: #ffffff;
+
   }
 
   &__item {
@@ -451,7 +465,7 @@
 
   &__navbuttons {
 
-    margin-top:50px;
+    margin-top:15px;
     text-align: center;
 
     &--button {
@@ -541,6 +555,11 @@ input:active, select:active, input:focus, select:focus{
   text-decoration: none
   font-weight:100
 
+  img{
+    height: 75px;
+    max-width: initial;
+  }
+
 .select
   border-radius: 0px
   border-color: black
@@ -561,3 +580,19 @@ input:active, select:active, input:focus, select:focus{
 
 header
   margin-bottom: 10px;
+
+.edit-img {
+  margin-top: 10px;
+}
+
+#txtPassword {
+    border:none;
+    background-color:#f9f9f9;
+    opacity: 0.8;
+    border-radius:4px;
+    height:25px;
+    font-size:14px;
+    padding-left:10px;
+    width: 250px;
+    margin-top:5px;
+  }

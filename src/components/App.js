@@ -53,20 +53,27 @@ logout = () => {
 
   };
 
-  authenticate = (provider) => {
-    base.authWithOAuthPopup(provider, this.authHandler);
-  };
 
-  authHandler = (err, authData) =>{
+authenticate = () => {
+  const pass = document.getElementById('txtPassword').value;
+  base.authWithPassword({
+    email    : 'rva.christian91@gmail.com',
+    password : pass
+  }, this.authHandler);
+}
+
+
+authHandler = (err, user) => {
     if (err){
       console.error(err);
-      return
+    
     }
     this.setState({
-        uid: authData.user.uid,
-        userDetail: authData.user
+        uid: user.user.uid,
+        userDetail: user
     })
-  }
+}
+
 
   handleViewChange = (view) => {
     this.setState({
@@ -88,9 +95,9 @@ logout = () => {
               <Match exactly pattern="/" render={() => <Home login={this.authenticate} {...this.state} />} />
               <Match pattern="/admin" render={() => <Admin  {...this.state} />} />
               <Match pattern="/poi" render={() => <POIContainer {...this.state} />} />
-              <Match pattern="/fishing" render={() => <FishingContainer />} />
-              <Match pattern="/edit-poi" render={() => <EditPOIContainer />} />
-              <Match pattern="/edit-fishing" render={() => <EditFishingContainer />} />
+              <Match pattern="/fishing" render={() => <FishingContainer {...this.state} />} />
+              <Match pattern="/edit-poi" render={() => <EditPOIContainer {...this.state} />} />
+              <Match pattern="/edit-fishing" render={() => <EditFishingContainer {...this.state} />} />
               <Match pattern="/view-info" render={() => <ViewFishingInfo />} />
               <Miss component={NotFound} />
             </div>

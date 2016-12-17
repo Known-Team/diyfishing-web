@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect, Link } from 'react-router';
 
 class Header extends React.Component{
 
@@ -21,7 +22,7 @@ class Header extends React.Component{
       if (user){
         return (
           <div id="header" className="dtc v-mid tr  dropdown">
-            <a href="#" onClick={this.showDropDown} className="no-underline avenir navlinks displayName"><img className="br-100 h3 w3 dib img" src={this.props.userDetail.photoURL} alt="avatar" />{this.props.userDetail.displayName}</a>
+            <a href="#" onClick={this.showDropDown} className="no-underline avenir navlinks displayName"><i className="fa fa-bars"></i></a>
             <div className={`dropdown__content ${this.state.dropDownopen ? `dropdown--open` :  `dropdown--closed` }`}>
               <div><a className="dropdown__item avenir" href="/poi">Points of Interest</a></div>
               <div><a className="dropdown__item avenir" href="/fishing">Fishing Info</a></div>
@@ -47,8 +48,8 @@ class Header extends React.Component{
         <nav className="dt w-100 mw8 center">
           <div className="dtc w2 v-mid pa3">
             {/* <button onClick={()=> this.logout()}>logout </button> */}
-            <a href="/" className="dib w2 h2 pa1 grow-large logo avenir">
-              DIYFishing
+            <a href="/" className="dib h2 pa1 grow-large logo avenir">
+              <img src="https://diyfishing.com/wp-content/uploads/2016/09/diyfishing_logo.png" />
             </a>
           </div>
           {nav}

@@ -15,6 +15,15 @@
   margin-top: 20px;
   margin-left: 20px;
 }
+.admin-panel--no-border {
+  border: none;
+}
+.admin-panel--no-border h2 {
+  font-weight: 300;
+}
+.admin-panel--no-border a {
+  margin-left: 0px;
+}
 .admin-panel__button {
   width: 150px;
   font-size: 10px;
@@ -173,7 +182,7 @@ body {
   margin-bottom: 50px;
 }
 .wrapper {
-  max-width: 50rem;
+  max-width: 60rem;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -208,6 +217,7 @@ body {
 .view-page__body {
   font-weight: 300;
   font-size: 14px;
+  margin-top: 15px;
 }
 .view-page hr {
   background-color: #eee;
@@ -272,6 +282,7 @@ body {
   min-width: 160px;
   padding-top: 10px;
   opacity: 1;
+  background-color: #fff;
 }
 .dropdown__item {
   color: #252525;
@@ -417,7 +428,7 @@ body {
   font-size: 2em;
 }
 .home-page__navbuttons {
-  margin-top: 50px;
+  margin-top: 15px;
   text-align: center;
 }
 .home-page__navbuttons--button {
@@ -502,6 +513,10 @@ select:focus {
   text-decoration: none;
   font-weight: 100;
 }
+.logo img {
+  height: 75px;
+  max-width: initial;
+}
 .select {
   border-radius: 0px;
   border-color: #000;
@@ -522,4 +537,18 @@ select:focus {
 }
 header {
   margin-bottom: 10px;
+}
+.edit-img {
+  margin-top: 10px;
+}
+#txtPassword {
+  border: none;
+  background-color: #f9f9f9;
+  opacity: 0.8;
+  border-radius: 4px;
+  height: 25px;
+  font-size: 14px;
+  padding-left: 10px;
+  width: 250px;
+  margin-top: 5px;
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Redirect, Link } from 'react-router';
+
 
 import base from '../base';
 
@@ -118,6 +120,19 @@ class EditPOIContainer extends React.Component{
   }
 
   render() {
+    if (!this.props.uid){
+      return (
+        <div className="component-wrapper">
+          <div className="wrapper">
+            <div className="admin-panel admin-panel--no-border avenir">
+              <h2 className="avenir">See you soon!</h2>
+              <Link to="/" className="home-page__navbuttons--button avenir">Sign back in</Link>
+            </div>
+          </div>
+        </div>
+      )
+    } else {
+
     return (
       <div className="component-wrapper">
         <div className="wrapper">
@@ -165,6 +180,7 @@ class EditPOIContainer extends React.Component{
         </div>
       </div>
     )
+  }
   }
 }
 
