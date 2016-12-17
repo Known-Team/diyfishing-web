@@ -20,7 +20,6 @@ class Home extends React.Component{
                 <small>DIYFishing's</small><br/>
                 Points of Interest
               </h1>
-              <h4 className="avenir">( needs some design love )</h4>
               <div className="home-page__navbuttons">
                 <button onClick={()=> this.props.login('google')} className="home-page__navbuttons--button avenir">Login with Google</button>
                 {/* <button onClick={()=> this.props.login('facebook')} className="home-page__navbuttons--button avenir">Login with Facebook</button> */}
