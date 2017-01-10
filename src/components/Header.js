@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Link } from 'react-router';
+
 
 class Header extends React.Component{
 
@@ -49,7 +49,7 @@ class Header extends React.Component{
           <div className="dtc w2 v-mid pa3">
             {/* <button onClick={()=> this.logout()}>logout </button> */}
             <a href="/" className="dib h2 pa1 grow-large logo avenir">
-              <img src="https://diyfishing.com/wp-content/uploads/2016/09/diyfishing_logo.png" />
+              <img alt="logo" src="https://diyfishing.com/wp-content/uploads/2016/09/diyfishing_logo.png" />
             </a>
           </div>
           {nav}

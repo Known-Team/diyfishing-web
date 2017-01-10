@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Link } from 'react-router';
+import { Link } from 'react-router';
 
 
 import base from '../base';
@@ -162,7 +162,7 @@ class EditFishingContainer extends React.Component{
             <div className="admin-panel__form">
               <div className="admin-panel__section">
                 <label>Image</label>
-                <img className="edit-img" src={this.state.image}/>
+                <img alt="img" className="edit-img" src={this.state.image}/>
               </div>
             </div>
             <div className="admin-panel__form">

@@ -1,6 +1,6 @@
 import React from 'react';
 import FishingInfo from '../components/Fishing';
-import { Redirect, Link } from 'react-router';
+import { Link } from 'react-router';
 import base from '../base';
 
 
@@ -31,18 +31,42 @@ class FishingContainer extends React.Component{
     const description = document.getElementById('description').value;
 
     const storageRef = base.storage().ref();
-    let file = image[0];
-    var metadata = {
-      'contentType': file.type
-    }
-
     const timestamp = Date.now();
 
-    storageRef.child(`images/${timestamp}/${file.name}`).put(file,metadata).then(function(snapshot){
 
-      const url = snapshot.metadata.downloadURLs[0];
+    if ( image.length > 0 ) {
+
+      let file = image[0];
+      var metadata = {
+        'contentType': file.type
+      }
+
+      storageRef.child(`images/${timestamp}/${file.name}`).put(file,metadata).then(function(snapshot){
+
+        const url = snapshot.metadata.downloadURLs[0];
+        base.post(`fishinginfo/fo-${timestamp}`, {
+          data: { name: name, image: url, latitude: latitude, longitude: longitude, description:description },
+          then(err){
+            if(!err){
+                document.getElementById('btnAddLocation').innerHTML = 'Add Location';
+                document.getElementById('name').value = null;
+                document.getElementById('image').value = null;
+                document.getElementById('latitude').value = null;
+                document.getElementById('longitude').value = null;
+                document.getElementById('description').value = null;
+            }
+          }
+        })
+
+      }).catch(function(error){
+        console.log("Upload Failed: ", error);
+      })
+
+
+    } else {
+      var placeholderURL = "https://firebasestorage.googleapis.com/v0/b/diyfishing-504c2.appspot.com/o/nsf27dnsca0-carl-heyerdahl.jpg?alt=media&token=da13130a-82b8-44d0-9842-dca48287e6a8";
       base.post(`fishinginfo/fo-${timestamp}`, {
-        data: { name: name, image: url, latitude: latitude, longitude: longitude, description:description },
+        data: { name: name, image: placeholderURL, latitude: latitude, longitude: longitude, description:description },
         then(err){
           if(!err){
               document.getElementById('btnAddLocation').innerHTML = 'Add Location';
@@ -55,9 +79,14 @@ class FishingContainer extends React.Component{
         }
       })
 
-    }).catch(function(error){
-      console.log("Upload Failed: ", error);
-    })
+    }
+
+
+
+
+
+
+
 
   } // end addPointofInterest
 
@@ -99,7 +128,7 @@ updatePOI = (key,updatedfo) =>{
         <div className="locations-block__info">
 
           <div className="locations-block__info__prop">
-            <img src={location.image} />
+            <img alt="img" src={location.image} />
           </div>
 
           <div className="locations-block__info__prop">

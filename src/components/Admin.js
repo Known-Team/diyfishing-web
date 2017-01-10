@@ -133,16 +133,7 @@ class Admin extends React.Component{
     }.bind(this));
   }
 
-  doSomethingWithData(d){
-      d.map(function(key,index){
-        console.log(key.capitol);
-        if (key.image === null){
-          key.image = "http://placehold.it/100x100";
-        }
-        document.getElementById("demo").innerHTML += "<img style='height:100px;width:100px' src="+ key.image +" />";
-      })
 
-  }
 
   removeLocation = (key) => {
 
@@ -240,7 +231,7 @@ this.updatePOI(key,updatedFishing);
     } else {
       return (
         <div>
-          
+
 
         </div>
       )

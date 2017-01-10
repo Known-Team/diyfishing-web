@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Link } from 'react-router';
+import { Redirect } from 'react-router';
 import PointofInterest from '../components/PointsofInterest';
 import base from '../base';
 
@@ -29,19 +29,44 @@ class POIContainer extends React.Component{
     const longitude = document.getElementById('longitude').value;
     const description = document.getElementById('description').value;
 
+
+    const timestamp = Date.now();
+
     const storageRef = base.storage().ref();
-    let file = image[0];
-    var metadata = {
-      'contentType': file.type
-    }
-
-      const timestamp = Date.now();
-    storageRef.child(`images/${timestamp}/${file.name}`).put(file,metadata).then(function(snapshot){
 
 
-      const url = snapshot.metadata.downloadURLs[0];
+    if ( image.length > 0 ) {
+
+      let file = image[0];
+      var metadata = {
+        'contentType': file.type
+      }
+
+      storageRef.child(`images/${timestamp}/${file.name}`).put(file,metadata).then(function(snapshot){
+
+        const url = snapshot.metadata.downloadURLs[0];
+        base.post(`pointofinterest/poi-${timestamp}`, {
+          data: { name: name, image: url, latitude: latitude, longitude: longitude, description:description },
+          then(err){
+            if(!err){
+                document.getElementById('btnAddLocation').innerHTML = 'Add Location';
+                document.getElementById('name').value = null;
+                document.getElementById('image').value = null;
+                document.getElementById('latitude').value = null;
+                document.getElementById('longitude').value = null;
+                document.getElementById('description').value = null;
+            }
+          }
+        })
+
+      }).catch(function(error){
+        console.log("Upload Failed: ", error);
+      })
+
+    } else {
+      var placeholderURL = "https://firebasestorage.googleapis.com/v0/b/diyfishing-504c2.appspot.com/o/nsf27dnsca0-carl-heyerdahl.jpg?alt=media&token=da13130a-82b8-44d0-9842-dca48287e6a8";
       base.post(`pointofinterest/poi-${timestamp}`, {
-        data: { name: name, image: url, latitude: latitude, longitude: longitude, description:description },
+        data: { name: name, image: placeholderURL, latitude: latitude, longitude: longitude, description:description },
         then(err){
           if(!err){
               document.getElementById('btnAddLocation').innerHTML = 'Add Location';
@@ -53,10 +78,12 @@ class POIContainer extends React.Component{
           }
         }
       })
+    }
 
-    }).catch(function(error){
-      console.log("Upload Failed: ", error);
-    })
+
+
+
+
 
   } // end addPointofInterest
 
@@ -90,8 +117,6 @@ updatePOI = (key,updatedPOI) =>{
   this.setState({ pointsofinterest: poi });
 };
 
-
-
   renderLocations = (key) => {
     const location = this.state.pointsofinterest[key];
     return (
@@ -100,7 +125,7 @@ updatePOI = (key,updatedPOI) =>{
         <div className="locations-block__info">
 
           <div className="locations-block__info__prop">
-            <img src={location.image} />
+            <img alt="img" src={location.image} />
           </div>
 
           <div className="locations-block__info__prop">
@@ -111,7 +136,7 @@ updatePOI = (key,updatedPOI) =>{
 
           <div className="locations-block__info__prop">
             <div className="locations-block__info__prop--label">Description</div>
-            <div className="locations-block__info__prop--value">{location.description}</div>
+            <div className="locations-block__info__prop--value">{`${location.description.substring(0,50)}...`}</div>
           </div>
 
 

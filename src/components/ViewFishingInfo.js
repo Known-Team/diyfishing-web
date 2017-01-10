@@ -63,7 +63,7 @@ class ViewFishingInfo extends React.Component{
       <div className="view-page pa3">
         <h1 className="avenir">{this.state.name}</h1>
         <hr />
-        <img src={this.state.image} />
+        <img alt="img" src={this.state.image} />
         <div id="info-body" className="view-page__body avenir"></div>
       </div>
     )
